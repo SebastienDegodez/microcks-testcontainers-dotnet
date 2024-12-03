@@ -4,12 +4,15 @@
     <IsPackable>false</IsPackable>
     <IsPublishable>false</IsPublishable>
 	<NoWarn>$(NoWarn);CS1591</NoWarn>
+	<Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="7.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
     <PackageReference Include="RestAssured.Net" Version="4.5.1" />
+    <PackageReference Include="Confluent.Kafka" Version="2.6.1" />
+    <PackageReference Include="TestContainers.Kafka" Version="4.1.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
     <PackageReference Include="xunit" Version="2.9.2" />
   </ItemGroup>
@@ -18,6 +21,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Update="apipastries-openapi.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="pastry-orders-asyncapi.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="apipastries-postman-collection.json">
