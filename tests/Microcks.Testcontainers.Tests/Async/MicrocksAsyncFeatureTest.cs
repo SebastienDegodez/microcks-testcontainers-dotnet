@@ -24,7 +24,7 @@ public sealed class MicrocksAsyncFeatureTest : IAsyncLifetime
     /// <summary>
     /// Image name for the Microcks container.
     /// </summary>
-    private const string MicrocksImage = "quay.io/microcks/microcks-uber:nightly-native";
+    private const string MicrocksImage = "quay.io/microcks/microcks-uber:1.10.1-native";
 
     private MicrocksContainerEnsemble _microcksContainerEnsemble;
 
@@ -46,7 +46,7 @@ public sealed class MicrocksAsyncFeatureTest : IAsyncLifetime
     {
         this._microcksContainerEnsemble.AsyncMinionContainer.Image.FullName
             .Should()
-            .Be("quay.io/microcks/microcks-uber-async-minion:nightly");
+            .Be("quay.io/microcks/microcks-uber-async-minion:1.10.1");
     }
 
 }

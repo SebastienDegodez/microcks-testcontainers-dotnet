@@ -4,7 +4,6 @@
     <IsPackable>false</IsPackable>
     <IsPublishable>false</IsPublishable>
 	<NoWarn>$(NoWarn);CS1591</NoWarn>
-	<Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="7.0.0" />

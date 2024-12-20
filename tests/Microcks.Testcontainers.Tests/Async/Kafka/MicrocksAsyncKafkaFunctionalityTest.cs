@@ -109,14 +109,14 @@ public sealed class MicrocksAsyncKafkaFunctionalityTest : IAsyncLifetime
     public async Task ShouldReturnsCorrectStatusContractWhenMessageIsEmitted(
         string message,
         bool result,
-        string? expectedMessage)
+        string expectedMessage)
     {
         var testRequest = new TestRequest
         {
             ServiceId = "Pastry orders API:0.1.0",
             RunnerType = TestRunnerType.ASYNC_API_SCHEMA,
             TestEndpoint = "kafka://kafka:19092/pastry-orders",
-            Timeout = TimeSpan.FromMilliseconds(10001)
+            Timeout = TimeSpan.FromMilliseconds(15000)
         };
 
         // Init Kafka producer to send a message
@@ -152,6 +152,7 @@ public sealed class MicrocksAsyncKafkaFunctionalityTest : IAsyncLifetime
                 Key = Guid.NewGuid().ToString(),
                 Value = message
             });
+            producer.Flush();
             await Task.Delay(200);
         }
 
@@ -167,7 +168,7 @@ public sealed class MicrocksAsyncKafkaFunctionalityTest : IAsyncLifetime
 
         testStepResults.Should().NotBeEmpty();
 
-        if (expectedMessage == null)
+        if (string.IsNullOrEmpty(expectedMessage) )
         {
             testStepResults.First().Message.Should().BeNull();
         }
