@@ -1,16 +1,18 @@
 version: 2
 updates:
-  - package-ecosystem: "nuget"
-    directory: "/"
+  - package-ecosystem: nuget
+    directory: /
     schedule:
-      interval: "weekly"
-      day: "sunday"
+      interval: weekly
+      day: sunday
     open-pull-requests-limit: 3
     rebase-strategy: disabled
-  - package-ecosystem: "github-actions"
-    directory: "/"
+      
+# Github Actions updates
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
-      day: "sunday"
+      interval: weekly
+      day: sunday
     open-pull-requests-limit: 3
     rebase-strategy: disabled
