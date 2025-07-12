@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: weekly
       day: sunday
-    open-pull-requests-limit: 3
+    #open-pull-requests-limit: 3
     rebase-strategy: disabled
     groups: {}
       
