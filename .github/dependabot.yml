@@ -1,5 +1,14 @@
 version: 2
 updates:
+  #  https://devblogs.microsoft.com/dotnet/using-dependabot-to-manage-dotnet-sdk-updates/
+  - package-ecosystem: "dotnet-sdk"
+    directory: /
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    open-pull-requests-limit: 1
+
+  # NuGet package updates
   - package-ecosystem: nuget
     directory: /
     schedule:
@@ -7,7 +16,27 @@ updates:
       day: sunday
     open-pull-requests-limit: 3
     rebase-strategy: disabled
-      
+    groups:
+      microsoft-sbom:
+        patterns: ['Microsoft.Sbom.*']
+      testcontainers:
+        patterns: ['Testcontainers*']
+      microsoft:
+        patterns: [Microsoft.*, System.*]
+      test-dependencies:
+        patterns: ['coverlet.collector', 'Microsoft.NET.Test.Sdk']
+      xunit:
+        patterns: [xunit.*]
+      # Grouping for Testcontainers
+      kafka:
+        patterns: ['Confluent.Kafka']
+      rabbitmq:
+        patterns: ['RabbitMQ.Client']
+      restassured:
+        patterns: ['RestAssured.Net']
+      all-dependencies:
+        patterns: ['*']
+
 # Github Actions updates
   - package-ecosystem: github-actions
     directory: /
@@ -16,3 +45,12 @@ updates:
       day: sunday
     open-pull-requests-limit: 3
     rebase-strategy: disabled
+
+
+  - package-ecosystem: nuget
+    directory: /.config/
+    schedule:
+      interval: weekly
+    groups:
+      dotnet-tools:
+        patterns: ['*']
