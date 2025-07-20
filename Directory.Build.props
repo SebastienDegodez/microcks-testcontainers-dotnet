@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <Project>
 	<PropertyGroup>
 		<PackageId>$(AssemblyName)</PackageId>
@@ -21,6 +21,6 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="" />
 	<None Include="$(MSBuildThisFileDirectory)LICENSE" Pack="true" PackagePath="" />
-	<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+	<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>	
 </Project>
