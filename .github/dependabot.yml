@@ -29,15 +29,7 @@ updates:
         patterns: [Microsoft.*, System.*]
       xunit:
         patterns: [xunit.*]
-      # Grouping for Testcontainers
-      kafka:
-        patterns: ['Confluent.Kafka']
-      RabbitMQ.Client:
-        patterns: ['RabbitMQ.Client']
-      RestAssured.Net:
-        patterns: ['RestAssured.Net']
-      all-dependencies:
-        patterns: ['*']
+
 
 # Github Actions updates
   - package-ecosystem: github-actions
